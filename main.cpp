@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
   FT_Load_Char(face, 'A', FT_LOAD_RENDER);
   auto &bitmap = face->glyph->bitmap;
   printf("Bitmap size: %dx%d\n", bitmap.width, bitmap.rows);
+  printf("X advance=%d\n", (face->glyph->advance.x >> 6));
 
   for (int y = 0; y < bitmap.rows; y++) {
     for (int x = 0; x < bitmap.width; x++) {
